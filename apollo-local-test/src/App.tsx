@@ -1,7 +1,18 @@
-import React from "react";
+import { FC } from "react";
+import { ApolloProvider } from "@apollo/client";
+import client from "./apollo";
+import TodoForm from "./components/TodoForm";
+import TodoList from "./components/TodoList";
+import GlobalStyle from "./styles/GlobalStyles";
 
-function App() {
-  return <div className="App">hello</div>;
-}
+const App: FC = () => {
+  return (
+    <ApolloProvider client={client}>
+      <GlobalStyle />
+      <TodoForm />
+      <TodoList />
+    </ApolloProvider>
+  );
+};
 
 export default App;
